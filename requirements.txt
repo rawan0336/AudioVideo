@@ -2,5 +2,5 @@ Flask
 opencv-python
 SpeechRecognition
 arabic-reshaper
-bidi
+python-bidi
 mediapipe
