@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Audio/Video Capture</title>
+</head>
+<body>
+    <h1>Real-Time Audio/Video Capture</h1>
+    <video id="localVideo" autoplay playsinline></video>
+
+    <script>
+        // Capture video and audio stream
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+            .then(stream => {
+                const videoElement = document.getElementById('localVideo');
+                videoElement.srcObject = stream;
+                // You can extend this to send the stream to a backend server
+            })
+            .catch(error => {
+                console.error('Error accessing media devices.', error);
+            });
+    </script>
+</body>
+</html>
+
