@@ -1,0 +1,9 @@
+*.mp4
+*.mov
+*.avi
+*.png
+*.jpg
+__pycache__/
+*.log
+*.csv
+*.data
