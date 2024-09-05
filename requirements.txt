@@ -1,0 +1,6 @@
+Flask
+opencv-python
+SpeechRecognition
+arabic-reshaper
+bidi
+mediapipe
