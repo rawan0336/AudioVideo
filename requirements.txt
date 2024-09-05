@@ -4,4 +4,3 @@ SpeechRecognition
 arabic-reshaper
 python-bidi
 mediapipe
-python-3.9.13
