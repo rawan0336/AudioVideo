@@ -3,7 +3,8 @@
 *.avi
 *.png
 *.jpg
-__pycache__/
+*.gif
 *.log
-*.csv
-*.data
+__pycache__/
+node_modules/
+.git/
