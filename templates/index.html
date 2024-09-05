@@ -3,37 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Video for Lip Detection</title>
+    <title>Upload File with Uploadcare</title>
+    <script>
+      UPLOADCARE_PUBLIC_KEY = 'YOUR_API_KEY';  // Replace with your Uploadcare API key
+    </script>
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
 </head>
 <body>
-    <h1>Upload Video for Lip Detection and Speech Recognition</h1>
-    <form id="uploadForm" enctype="multipart/form-data">
-        <input type="file" id="videoFile" name="videoFile" accept="video/*">
-        <button type="submit">Upload Video</button>
-    </form>
+    <h1>Upload a File</h1>
+    <input type="hidden" role="uploadcare-uploader" data-public-key="f8e7adbe5874f83a9e48" />
+    <button id="uploadButton">Upload</button>
 
     <script>
-        const uploadForm = document.getElementById('uploadForm');
-        
-        uploadForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const videoFile = document.getElementById('videoFile').files[0];
-
-            const formData = new FormData();
-            formData.append('videoFile', videoFile);
-
-            // Send the video file to your backend
-            fetch('https://your-heroku-app-name.herokuapp.com/process-video', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Processed video:', data);
-            })
-            .catch(error => {
-                console.error('Error uploading video:', error);
-            });
+        document.querySelector('[role=uploadcare-uploader]').addEventListener('change', function (event) {
+            console.log(event.target.value);  // This will log the file URL after uploading
+            alert('File uploaded successfully!');
         });
     </script>
 </body>
