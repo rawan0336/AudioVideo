@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Video for Lip Detection</title>
+</head>
+<body>
+    <h1>Upload Video for Lip Detection and Speech Recognition</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="videoFile" name="videoFile" accept="video/*">
+        <button type="submit">Upload Video</button>
+    </form>
+
+    <script>
+        const uploadForm = document.getElementById('uploadForm');
+        
+        uploadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const videoFile = document.getElementById('videoFile').files[0];
+
+            const formData = new FormData();
+            formData.append('videoFile', videoFile);
+
+            // Send the video file to your backend
+            fetch('https://your-heroku-app-name.herokuapp.com/process-video', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Processed video:', data);
+            })
+            .catch(error => {
+                console.error('Error uploading video:', error);
+            });
+        });
+    </script>
+</body>
+</html>
