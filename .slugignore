@@ -4,7 +4,7 @@
 *.png
 *.jpg
 *.gif
-*.log
 __pycache__/
+*.log
 node_modules/
 .git/
