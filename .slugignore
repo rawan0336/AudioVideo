@@ -4,6 +4,11 @@
 *.png
 *.jpg
 *.gif
+*.wav
+*.tiff
+*.bmp
+.DS_Store  # For macOS users
+*.sqlite3  # If you're using SQLite database
 __pycache__/
 *.log
 node_modules/
