@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload File with Uploadcare</title>
+    <title>Upload .mov File</title>
     <script>
       UPLOADCARE_PUBLIC_KEY = 'f8e7adbe5874f83a9e48';  // Replace with your Uploadcare API key
     </script>
     <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
 </head>
 <body>
-    <h1>Upload a File</h1>
-    <input type="hidden" role="uploadcare-uploader" data-public-key="f8e7adbe5874f83a9e48" />
+    <h1>Upload a .mov video for lip Detection</h1>
+    <input type="hidden" role="uploadcare-uploader" data-public-key="f8e7adbe5874f83a9e48" data-multiple="false" data-images-only="false" />
     <button id="uploadButton">Upload</button>
 
     <script>
