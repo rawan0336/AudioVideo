@@ -16,8 +16,23 @@
 
     <script>
         document.querySelector('[role=uploadcare-uploader]').addEventListener('change', function (event) {
-            console.log(event.target.value);  // This will log the file URL after uploading
-            alert('File uploaded successfully!');
+            const fileUrl = event.target.value;  // Get the file URL after the upload
+            console.log('File URL:', fileUrl);
+
+            // Send the file URL to your backend for processing
+            fetch('/process-video', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ video_url: fileUrl })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Processed Data:', data);
+                alert('Video processed successfully!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         });
     </script>
 </body>
